@@ -1,9 +1,9 @@
-.new-tweet {
+/* .new-tweet {
   font-family: "Source Sans 3", sans-serif;
   display: flex;
   flex-direction: column;
   width: 100%;
-}
+} */
 
 .tweet-form {
   display: flex;
@@ -32,6 +32,7 @@
   justify-content: space-between;
   border-top-style: solid;
   border-top-color:#545149;
-  border-top-width: 0.2em;
+  border-top-width: 4px;
   padding-top: 20px;
+  padding-bottom: 20px;
 }
