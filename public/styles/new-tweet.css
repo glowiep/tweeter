@@ -12,6 +12,19 @@
   font-weight: 600;
 }
 
+#tweet-text {
+  background: none;
+  border: none;
+  outline: none;
+  resize: none;
+  overflow: hidden;
+  font-size: 0.8em;
+  height: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-weight: 600;
+}
+
 .tweet-counter {
   font-family: Bungee, sans-serif;
   display: flex;
@@ -21,11 +34,4 @@
   border-top-color:#545149;
   border-top-width: 0.2em;
   padding-top: 20px;
-  margin-top: 20px;
-}
-
-#tweet-text {
-  display: none;
-  font-size: 0.75em;
-  height: 30px;
 }
