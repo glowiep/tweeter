@@ -1,0 +1,31 @@
+.new-tweet {
+  font-family: "Source Sans 3", sans-serif;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.tweet-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  font-weight: 600;
+}
+
+.tweet-counter {
+  font-family: Bungee, sans-serif;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-top-style: solid;
+  border-top-color:#545149;
+  border-top-width: 0.2em;
+  padding-top: 20px;
+  margin-top: 20px;
+}
+
+#tweet-text {
+  display: none;
+  font-size: 0.75em;
+  height: 30px;
+}
