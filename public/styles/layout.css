@@ -33,3 +33,9 @@ main {
   margin-left: 5%;
   margin-right: 5%;
 }
+
+button {
+  background-color: #4056A1;
+  outline-color: #4056A1;
+  color:#f4f1ec;
+}
