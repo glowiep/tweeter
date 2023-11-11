@@ -36,6 +36,14 @@ main {
 
 button {
   background-color: #4056A1;
-  outline-color: #4056A1;
   color:#f4f1ec;
+}
+
+section {
+  font-family: "Source Sans 3", sans-serif;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
