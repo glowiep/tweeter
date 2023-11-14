@@ -84,4 +84,20 @@ $(document).ready(function() {
   ];
 
   renderTweets(data);
+
+  // AJAX POST request when the form is submitted
+  $("form").on("submit", function(event) {
+    // Prevent the form's default submission.
+    event.preventDefault();
+
+    const data = $(this).serialize();
+    const url = $(this).attr("action");
+
+    // AJAX POST request that sends the form data to the server
+    $.ajax({
+      type: "POST",
+      url,
+      data
+    });
+  });
 });
