@@ -1,4 +1,4 @@
-section.shadow:hover {
+article.shadow:hover {
   box-shadow: 8px 8px 2px 1px rgba(0, 0, 255, .2);
 }
 
@@ -7,6 +7,7 @@ article {
   border-color: #545149;
   padding: 10px;
   border-width: 4px;
+  margin: 20px;
 }
 
 article header {
