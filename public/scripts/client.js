@@ -1,22 +1,30 @@
 /*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
+* Client-side JS logic goes here
+* jQuery is already loaded
+* Reminder: Use (and do all your DOM work in) jQuery's document ready function
+*/
+$(document).ready(function() {
+//  Render tweets in tweets-container
+  const renderTweets = function(tweets) {
+    for (let individualTweet of tweets) {
+      const $tweet = createTweetElement(individualTweet);
+      $('#tweets-container').append($tweet);
+    }
+  };
+  
+  const createTweetElement = function(tweetObject) {
+    // Tweet article header info
+    const username = tweetObject.user.name;
+    const usernameHandle = tweetObject.user.handle;
+    const avatarImg = tweetObject.user.avatars;
+    // Tweet message
+    const tweetText = tweetObject.content.text;
+    // Calculate when tweet was posted
+    const dateTweeted = tweetObject.created_at;
+    const postedTime = getPostedTime(dateTweeted);
 
-const createTweetElement = function(tweetObject) {
-  // Tweet article header info
-  const username = tweetObject.user.name;
-  const usernameHandle = tweetObject.user.handle;
-  const avatarImg = tweetObject.user.avatars;
-  // Tweet message
-  const tweetText = tweetObject.content.text;
-  // Calculate when tweet was posted
-  const dateTweeted = tweetObject.created_at;
-  const postedTime = getPostedTime(dateTweeted);
-
-  const tweet =
-    `<article>
+    const $tweet =
+    `<article class="shadow">
       <header>
         <div class="tweet-user-profile">
           <img src=${avatarImg} alt="My Profile Picture">
@@ -35,17 +43,45 @@ const createTweetElement = function(tweetObject) {
       </footer>
     </article>`;
     
-  return tweet;
-};
+    return $tweet;
+  };
 
-// Helper function to get number of days
-const getPostedTime = function(timeInMilliseconds) {
-  const currentDate = new Date();
-  const millisecondsSinceEpoch = currentDate.getTime();
-  const difference = millisecondsSinceEpoch - timeInMilliseconds;
+  // Helper function to get number of days
+  const getPostedTime = function(postedDateInMilliseconds) {
+    const currentDate = new Date();
+    const millisecondsSinceEpoch = currentDate.getTime();
+    const difference = millisecondsSinceEpoch - postedDateInMilliseconds;
 
-  const millisecondsPerDay = 1000 * 60 * 60 * 24;
-  const numberOfDays = Math.round(difference / millisecondsPerDay);
+    const millisecondsPerDay = 1000 * 60 * 60 * 24;
+    const numberOfDays = Math.round(difference / millisecondsPerDay);
   
-  return numberOfDays;
-};
+    return numberOfDays;
+  };
+  // Fake data taken from initial-tweets.json
+  const data = [
+    {
+      "user": {
+        "name": "Newton",
+        "avatars": "https://i.imgur.com/73hZDYK.png"
+        ,
+        "handle": "@SirIsaac"
+      },
+      "content": {
+        "text": "If I have seen further it is by standing on the shoulders of giants"
+      },
+      "created_at": 1461116232227
+    },
+    {
+      "user": {
+        "name": "Descartes",
+        "avatars": "https://i.imgur.com/nlhLi3I.png",
+        "handle": "@rd" },
+      "content": {
+        "text": "Je pense , donc je suis"
+      },
+      "created_at": 1461113959088
+    }
+  ];
+
+  renderTweets(data);
+});
