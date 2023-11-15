@@ -6,9 +6,11 @@
 $(document).ready(function() {
 //  Render tweets in tweets-container
   const renderTweets = function(tweets) {
+    const $allTweetsContainer = $('#tweets-container');
+    $allTweetsContainer.empty();
     for (let individualTweet of tweets) {
       const $tweet = createTweetElement(individualTweet);
-      $('#tweets-container').append($tweet);
+      $allTweetsContainer.append($tweet);
     }
   };
   
@@ -57,47 +59,46 @@ $(document).ready(function() {
   
     return numberOfDays;
   };
-  // Fake data taken from initial-tweets.json
-  const data = [
-    {
-      "user": {
-        "name": "Newton",
-        "avatars": "https://i.imgur.com/73hZDYK.png"
-        ,
-        "handle": "@SirIsaac"
-      },
-      "content": {
-        "text": "If I have seen further it is by standing on the shoulders of giants"
-      },
-      "created_at": 1461116232227
-    },
-    {
-      "user": {
-        "name": "Descartes",
-        "avatars": "https://i.imgur.com/nlhLi3I.png",
-        "handle": "@rd" },
-      "content": {
-        "text": "Je pense , donc je suis"
-      },
-      "created_at": 1461113959088
-    }
-  ];
 
-  renderTweets(data);
 
-  // AJAX POST request when the form is submitted
+  // AJAX POST handler for form submission
   $("form").on("submit", function(event) {
     // Prevent the form's default submission.
     event.preventDefault();
 
     const data = $(this).serialize();
-    const url = $(this).attr("action");
-
+    const url = "/tweets";
+    
     // AJAX POST request that sends the form data to the server
     $.ajax({
       type: "POST",
       url,
-      data
+      data,
+      success: (data) => {
+        // Clear textarea
+        $("#tweet-text").val('');
+        loadtweets();
+      },
+      error: (err) => {
+        console.log(err);
+      } 
     });
   });
+
+  
+  // Function responsible for fetching tweets
+  const loadtweets = function() {
+    const tweetsURL = "/tweets";
+    $.ajax({
+      method: "GET",
+      url: tweetsURL,
+      success: (newTweet) => {
+        renderTweets(newTweet.reverse());
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    })
+  }
+  loadtweets();
 });
