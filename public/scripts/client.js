@@ -1,8 +1,3 @@
-/*
-* Client-side JS logic goes here
-* jQuery is already loaded
-* Reminder: Use (and do all your DOM work in) jQuery's document ready function
-*/
 $(document).ready(function() {
 //  Render tweets in tweets-container
   const renderTweets = function(tweets) {
@@ -23,7 +18,7 @@ $(document).ready(function() {
     const tweetText = tweetObject.content.text;
     // Calculate when tweet was posted
     const dateTweeted = tweetObject.created_at;
-    const postedTime = getPostedTime(dateTweeted);
+    const postedTime = timeago.format(dateTweeted);
 
     const $tweet =
     `<article class="shadow">
@@ -36,7 +31,7 @@ $(document).ready(function() {
       </header>
       <p class="tweet-text">${tweetText}</p>
       <footer>
-        <p>${postedTime} days ago</p>
+        <p>${postedTime}</p>
         <div class="all-tweets-icons">
           <i class="fa-solid fa-flag"></i>
           <i class="fa-solid fa-retweet"></i>
@@ -47,19 +42,6 @@ $(document).ready(function() {
     
     return $tweet;
   };
-
-  // Helper function to get number of days
-  const getPostedTime = function(postedDateInMilliseconds) {
-    const currentDate = new Date();
-    const millisecondsSinceEpoch = currentDate.getTime();
-    const difference = millisecondsSinceEpoch - postedDateInMilliseconds;
-
-    const millisecondsPerDay = 1000 * 60 * 60 * 24;
-    const numberOfDays = Math.round(difference / millisecondsPerDay);
-  
-    return numberOfDays;
-  };
-
 
   // AJAX POST handler for form submission
   $("form").on("submit", function(event) {
@@ -77,11 +59,13 @@ $(document).ready(function() {
       success: (data) => {
         // Clear textarea
         $("#tweet-text").val('');
+        const $counterElem = $("#tweet-text").parent().find(".counter");
+        $counterElem.val('140');
         loadtweets();
       },
       error: (err) => {
         console.log(err);
-      } 
+      }
     });
   });
 
@@ -98,7 +82,7 @@ $(document).ready(function() {
       error: (err) => {
         console.log(err);
       }
-    })
-  }
+    });
+  };
   loadtweets();
 });
