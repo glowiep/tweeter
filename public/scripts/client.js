@@ -48,6 +48,16 @@ $(document).ready(function() {
     // Prevent the form's default submission.
     event.preventDefault();
 
+    // Prevent submission if textarea is empty or exceedes 140 characters
+    const $tweetText = $("#tweet-text");
+    if ($tweetText.val().length === 0) {
+      alert("Please enter a tweet.");
+      return;
+    } else if ($tweetText.val().length > 140) {
+      alert("Tweet has to be less than 140 characters!")
+      return;
+    }
+    
     const data = $(this).serialize();
     const url = "/tweets";
     
@@ -58,8 +68,8 @@ $(document).ready(function() {
       data,
       success: (data) => {
         // Clear textarea
-        $("#tweet-text").val('');
-        const $counterElem = $("#tweet-text").parent().find(".counter");
+        $tweetText.val('');
+        const $counterElem = $tweetText.parent().find(".counter");
         $counterElem.val('140');
         loadtweets();
       },
