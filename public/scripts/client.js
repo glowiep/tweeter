@@ -10,15 +10,23 @@ $(document).ready(function() {
   };
   
   const createTweetElement = function(tweetObject) {
+    // Prevent XSS with escaping
+    const escape = function(str) {
+      let p = document.createElement("p");
+      p.appendChild(document.createTextNode(str));
+      return p.innerHTML;
+    }
+
     // Tweet article header info
     const username = tweetObject.user.name;
     const usernameHandle = tweetObject.user.handle;
     const avatarImg = tweetObject.user.avatars;
     // Tweet message
-    const tweetText = tweetObject.content.text;
+    const tweetText = escape(tweetObject.content.text);
     // Calculate when tweet was posted
     const dateTweeted = tweetObject.created_at;
     const postedTime = timeago.format(dateTweeted);
+
 
     const $tweet =
     `<article class="shadow">
@@ -86,8 +94,8 @@ $(document).ready(function() {
     $.ajax({
       method: "GET",
       url: tweetsURL,
-      success: (newTweet) => {
-        renderTweets(newTweet.reverse());
+      success: (tweets) => {
+        renderTweets(tweets.reverse());
       },
       error: (err) => {
         console.log(err);
