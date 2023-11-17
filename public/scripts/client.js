@@ -59,13 +59,22 @@ $(document).ready(function() {
     // Prevent submission if textarea is empty or exceedes 140 characters
     const $tweetText = $("#tweet-text");
     if ($tweetText.val().length === 0) {
-      alert("Please enter a tweet.");
+      $("#validate-warning").slideDown("slow",function() {
+        const errMsg = "Please enter a tweet."
+        $(this).addClass("validator").html(errMsg);
+      })
       return;
     } else if ($tweetText.val().length > 140) {
-      alert("Tweet has to be less than 140 characters!")
+      $("#validate-warning").slideDown("slow", function() {
+        const errMsg = "Tweet has to be less than 140 characters!";
+        $(this).addClass("validator").html(errMsg);
+      })
       return;
     }
     
+    // Remove tweet validation warning
+    $("#validate-warning").remove('.validator').html();
+
     const data = $(this).serialize();
     const url = "/tweets";
     
