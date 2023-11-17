@@ -36,3 +36,9 @@
   padding-top: 20px;
   padding-bottom: 20px;
 }
+
+.validator {
+  color: white;
+  background-color: rgb(225, 17, 10);
+  padding: 10px;
+}
