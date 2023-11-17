@@ -34,7 +34,7 @@ main {
   margin-right: 5%;
 }
 
-button {
+#tweet-button {
   background-color: #4056A1;
   color:#f4f1ec;
   padding: 5px;
