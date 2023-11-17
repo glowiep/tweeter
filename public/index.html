@@ -40,8 +40,10 @@
     <nav>
       <span class="title">tweeter</span>
       <div class="nav-action">
-        <span><b>Write</b> a new tweet</span>
-        <i class="fa-solid fa-angles-down fa-beat" style="color: #ff1400;"></i>
+        <button id="compose">
+          <span><b>Write</b> a new tweet</span>
+          <i class="fa-solid fa-angles-down fa-beat" style="color: #ff1400;"></i>
+        </button>
       </div>
     </nav>
 
@@ -59,7 +61,6 @@
   <!-- Page-specific (main) content here -->
     <main class="container">
       <section class="new-tweet">
-        <h2>Compose Tweet</h2>
         <form class="tweet-form">
           <label for="tweet-text">What are you humming about?</label>
           <textarea name="text" id="tweet-text"></textarea>
