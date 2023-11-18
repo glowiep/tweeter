@@ -1,5 +1,15 @@
 $(document).ready(function() {
-//  Render tweets in tweets-container
+  // Hide compose-tweet section by default
+  $("#compose-tweet").hide();
+  
+  $("#compose").on("click", function(event) {
+    event.preventDefault;
+    
+    $("#compose-tweet").toggle(); // show or hide compose-tweet section
+    $("#tweet-text").focus(); // Enable the textarea automatically
+  });
+
+  //  Render tweets in tweets-container
   const renderTweets = function(tweets) {
     const $allTweetsContainer = $('#tweets-container');
     $allTweetsContainer.empty();
@@ -15,7 +25,7 @@ $(document).ready(function() {
       let p = document.createElement("p");
       p.appendChild(document.createTextNode(str));
       return p.innerHTML;
-    }
+    };
 
     // Tweet article header info
     const username = tweetObject.user.name;
@@ -51,6 +61,21 @@ $(document).ready(function() {
     return $tweet;
   };
 
+  // Function responsible for fetching tweets
+  const loadtweets = function() {
+    const tweetsURL = "/tweets";
+    $.ajax({
+      method: "GET",
+      url: tweetsURL,
+      success: (tweets) => {
+        renderTweets(tweets.reverse());
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
+  };
+
   // AJAX POST handler for form submission
   $("form").on("submit", function(event) {
     // Prevent the form's default submission.
@@ -63,15 +88,15 @@ $(document).ready(function() {
     const $tweetText = $("#tweet-text");
     if ($tweetText.val().length === 0) {
       $("#validate-warning").slideDown("slow",function() {
-        const errMsg = `<i class="fa-solid fa-circle-exclamation fa-bounce" style="color: #fff700;"></i> Please enter a tweet.`
+        const errMsg = `<i class="fa-solid fa-circle-exclamation fa-bounce" style="color: #fff700;"></i> Please enter a tweet.`;
         $(this).addClass("validator").html(errMsg);
-      })
+      });
       return;
     } else if ($tweetText.val().length > 140) {
       $("#validate-warning").slideDown("slow", function() {
         const errMsg = `<i class="fa-solid fa-circle-exclamation fa-bounce" style="color: #fff700;"></i> Tweet has to be less than 140 characters!`;
         $(this).addClass("validator").html(errMsg);
-      })
+      });
       return;
     }
 
@@ -96,31 +121,7 @@ $(document).ready(function() {
     });
   });
 
-  
-  // Function responsible for fetching tweets
-  const loadtweets = function() {
-    const tweetsURL = "/tweets";
-    $.ajax({
-      method: "GET",
-      url: tweetsURL,
-      success: (tweets) => {
-        renderTweets(tweets.reverse());
-      },
-      error: (err) => {
-        console.log(err);
-      }
-    });
-  };
   loadtweets();
 });
 
-/*
-const $tweetText = $("#tweet-text");
-    if ($tweetText.val().length === 0) {
-      const errMsg = "Please enter a tweet."
-      const $validateWarning = `<div id="validate-warning" class="validator">${errMsg}</div>`
-      $(this).append($validateWarning);
-      $("#validate-warning").slideDown("slow")
-      return;
-    }
-*/
+//
