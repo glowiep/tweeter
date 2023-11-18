@@ -5,7 +5,7 @@ $(document).ready(function() {
   $("#compose").on("click", function(event) {
     event.preventDefault;
     
-    $("#compose-tweet").toggle(); // show or hide compose-tweet section
+    $("#compose-tweet").toggle("fast"); // show or hide compose-tweet section
     $("#tweet-text").focus(); // Enable the textarea automatically
   });
   
