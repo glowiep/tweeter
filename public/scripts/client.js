@@ -9,6 +9,12 @@ $(document).ready(function() {
     $("#tweet-text").focus(); // Enable the textarea automatically
   });
 
+  // Scroll to top button function
+  $("#jump-to-top").on("click", function(event) {
+    event.preventDefault;
+    $("html, body").animate({ scrollTop: 0 }, "slow");
+  })
+
   //  Render tweets in tweets-container
   const renderTweets = function(tweets) {
     const $allTweetsContainer = $('#tweets-container');
