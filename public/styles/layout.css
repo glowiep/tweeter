@@ -53,3 +53,15 @@ section {
   margin-top: 20px;
   margin-bottom: 20px;
 }
+
+#jump-to-top {
+  border: none;
+  border-radius: 50%;
+  width: 52px;
+  right: 30px;
+  position: fixed;
+  padding: 10px; 
+  bottom: 20px;
+  background-color: red;
+  cursor: pointer;
+}
