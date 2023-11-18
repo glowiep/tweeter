@@ -1,11 +1,4 @@
-/* .new-tweet {
-  font-family: "Source Sans 3", sans-serif;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-} */
-
-.tweet-form {
+#tweet-form {
   display: flex;
   flex-direction: column;
   width: 100%;
