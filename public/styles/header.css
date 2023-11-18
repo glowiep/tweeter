@@ -1,7 +1,7 @@
 #main-header {
   width: 100%;
   height: 520px;
-  background-color: lightgray;
+  background-color: darkorchid;
   background-image: url("https://www.transparenttextures.com/patterns/wood-pattern.png");
   display: flex;
   flex-direction: column;
