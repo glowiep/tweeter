@@ -1,5 +1,9 @@
 $(document).ready(function() {
-  //  Render tweets in tweets-container
+  /**
+   * Takes in an array of tweet objects, and render them to the DOM.
+   * @param {Object[]} tweets - an array of tweet data objects.
+   * @returns appends the tweet HTML structure to the tweets container.
+   */
   const renderTweets = function(tweets) {
     const $allTweetsContainer = $('#tweets-container');
     $allTweetsContainer.empty();
@@ -9,6 +13,11 @@ $(document).ready(function() {
     }
   };
   
+  /**
+   * Takes in a tweet object and returns a tweet <article> element containing the entire HTML structure of the tweet.
+   * @param {object} tweetObject - tweet data object with all the necessary tweet data.
+   * @returns individual tweet <article> elements containing the entire HTML structure of the tweet.
+   */
   const createTweetElement = function(tweetObject) {
     // Prevent XSS with escaping
     const escape = function(str) {
@@ -51,9 +60,15 @@ $(document).ready(function() {
     return $tweet;
   };
 
-  // Function responsible for fetching tweets
+
+  /**
+   * Fetches tweets from the http://localhost:8080/tweets page.
+   * @function
+   * @name loadtweets
+   */
   const loadtweets = function() {
     const tweetsURL = "/tweets";
+
     $.ajax({
       method: "GET",
       url: tweetsURL,
@@ -102,6 +117,7 @@ $(document).ready(function() {
         // Clear textarea
         $tweetText.val('');
         const $counterElem = $tweetText.parent().find(".counter");
+        // Reset counter
         $counterElem.val('140');
         loadtweets();
       },
