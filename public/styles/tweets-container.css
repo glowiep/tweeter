@@ -7,7 +7,7 @@ article {
   border-color: #545149;
   padding: 10px;
   border-width: 4px;
-  margin: 20px;
+  min-width: 430px;
 }
 
 article header {
