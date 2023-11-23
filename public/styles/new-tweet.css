@@ -1,3 +1,4 @@
+/* CSS for mobile views and above */
 #compose-tweet {
   margin-top: 10px;
 }
@@ -40,7 +41,7 @@
   padding: 10px;
 }
 
-/* CSS rules that target Desktop screens*/
+/* CSS rules that target Desktop screens (min width 1024px) */
 @media only screen and (min-width: 1024px) {
   .container {
     margin-top: 130px;
