@@ -19,11 +19,13 @@ Tweeter homepage layout will depend on your device.
 - The remaining characters avaliable is indicated at the bottom right corner. This will turn red when 140 characters is exceeded. 
 ![Screenshot of Tweet character count validation error](https://github.com/glowiep/tweeter/blob/master/docs/characters-exceeded-error.png?raw=true) <br><br>
 - Empty Tweets will not be posted.
-![Screenshot of empty Tweet error](https://github.com/glowiep/tweeter/blob/master/docs/empty-tweet-error.png?raw=true)
-- Posts are sequential, with the most recent posts appearing at the top of the page.
+![Screenshot of empty Tweet error](https://github.com/glowiep/tweeter/blob/master/docs/empty-tweet-error.png?raw=true)<br><br>
+- Posts are sequential, with the most recent posts appearing at the top of the page. <br><br>
 - Click on "Write a new tweet" on the top right corner to toggle the visibility of the compose tweet textbox. <br>
-![Screenshot of write a new tweet](https://github.com/glowiep/tweeter/blob/master/docs/write-a-new-tweet-button.png?raw=true) 
-<br><br>
+<div align="center">
+<img width="100px" src=https://github.com/glowiep/tweeter/blob/master/docs/write-a-new-tweet-button.png?raw=true>
+</div>
+<br>
 
 ## Steps to clone and run locally
 
@@ -51,3 +53,8 @@ Tweeter homepage layout will depend on your device.
 `(Zoom in and out with CTRL/CMD and +/- (or scroll) to test the responsive design)`
 - SASS components for maintainable CSS.
 
+
+<h3 style="text-align: center;">Happy Tweeting!</h3>
+<div align="center">
+<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdWF2eTFmb2dzYnYyeDkwdHBuNzB5dnU5dGF1b3JzZzdncGNtaTNrOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o85g4l3qgILLQelgs/giphy.gif" width="130">
+</div>
