@@ -1,10 +1,13 @@
 $(document).ready(function() {
-  // Hide compose-tweet section by default
-  $("#compose-tweet").hide();
+  // Show compose-tweet section by default
+  $("#compose-tweet").show();
+  $("#tweet-text").focus();
   
   $("#compose").on("click", function(event) {
     event.preventDefault;
-    
+    // Remove tweet validation warning
+    $("#validate-warning").removeClass("validator").empty();
+
     $("#compose-tweet").toggle("fast"); // show or hide compose-tweet section
     $("#tweet-text").focus(); // Enable the textarea automatically
   });
