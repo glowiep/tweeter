@@ -92,16 +92,12 @@ $(document).ready(function() {
     // Prevent submission if textarea is empty or exceedes 140 characters
     const $tweetText = $("#tweet-text");
     if ($tweetText.val().length === 0) {
-      $("#validate-warning").slideDown("slow",function() {
-        const errMsg = `<i class="fa-solid fa-circle-exclamation fa-bounce" style="color: #fff700;"></i> Please enter a tweet.`;
-        $(this).addClass("validator").html(errMsg);
-      });
+      const errMsg = `<i class="fa-solid fa-circle-exclamation fa-bounce" style="color: #fff700;"></i> Please enter a tweet.`;
+      $("#validate-warning").addClass("validator").html(errMsg).hide().slideDown("fast");
       return;
     } else if ($tweetText.val().length > 140) {
-      $("#validate-warning").slideDown("slow", function() {
-        const errMsg = `<i class="fa-solid fa-circle-exclamation fa-bounce" style="color: #fff700;"></i> Tweet has to be less than 140 characters!`;
-        $(this).addClass("validator").html(errMsg);
-      });
+      const errMsg = `<i class="fa-solid fa-circle-exclamation fa-bounce" style="color: #fff700;"></i> Tweet has to be less than 140 characters!`;
+      $("#validate-warning").addClass("validator").html(errMsg).hide().slideDown("fast");
       return;
     }
 
