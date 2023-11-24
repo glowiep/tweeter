@@ -21,9 +21,11 @@ Tweeter homepage layout will depend on your device.
 - Empty Tweets will not be posted.
 ![Screenshot of empty Tweet error](https://github.com/glowiep/tweeter/blob/master/docs/empty-tweet-error.png?raw=true)<br><br>
 - Posts are sequential, with the most recent posts appearing at the top of the page. <br><br>
+- A scroll-to-top button will appear in the bottom-right corner upon scrolling.
+![Screenshot of scroll button](https://github.com/glowiep/tweeter/blob/master/docs/scroll-button.png?raw=true)<br><br>
 - Click on "Write a new tweet" on the top right corner to toggle the visibility of the compose tweet textbox. <br>
 <div align="center">
-<img width="100px" src=https://github.com/glowiep/tweeter/blob/master/docs/write-a-new-tweet-button.png?raw=true>
+<img width="130px" src=https://github.com/glowiep/tweeter/blob/master/docs/write-a-new-tweet-button.png?raw=true>
 </div>
 <br>
 
