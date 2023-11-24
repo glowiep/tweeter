@@ -1,3 +1,16 @@
+// Default top and bottom padding
+@mixin padding($left: none, $right: none) {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  padding-left: $left;
+  padding-right: $right;
+}
+
+// Color variables
+$default-color: #545149;
+$validator-background: rgb(225, 17, 10);
+$validator-text: white;
+
 /* CSS for mobile views and above */
 #tweet-form {
   display: flex;
@@ -7,11 +20,8 @@
 }
 
 #tweet-text {
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
-  padding-left: none;
-  padding-right: none;
-  color: #545149;
+  @include padding;
+  color: $default-color;
   background: none;
   border: none;
   outline: none;
@@ -23,11 +33,8 @@
 }
 
 .tweet-counter {
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
-  padding-left: none;
-  padding-right: none;
-  border-top-color: #545149;
+  @include padding;
+  border-top-color: $default-color;
   font-family: Bungee, sans-serif;
   display: flex;
   flex-direction: row;
@@ -37,12 +44,9 @@
 }
 
 .validator {
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
-  padding-left: 0.5em;
-  padding-right: 0.5em;
-  color: white;
-  background-color: rgb(225, 17, 10);
+  @include padding($left: 0.5em, $right: 0.5em);
+  color: $validator-text;
+  background-color: $validator-background;
 }
 
 /* CSS rules that target Desktop screens (min width 1024px) */

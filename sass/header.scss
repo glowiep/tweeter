@@ -1,10 +1,21 @@
-/* CSS for mobile views and above */
-#main-header {
+// Default center vertical align
+@mixin vertical-align($justify-content: center, $align-items: center) {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  background-color: rgb(214, 139, 82);
+  justify-content: $justify-content;
+  align-items: $align-items;
+  }
+
+// Color variables
+$background: rgb(214, 139, 82);
+
+// Font variables
+$main-font: Source Pro Sans, sans-serif;
+
+/* CSS for mobile views and above */
+#main-header {
+  @include vertical-align($justify-content: flex-start);
+  background-color: $background;
   height: 520px;
   background-image: url("https://www.transparenttextures.com/patterns/wood-pattern.png");
   min-width: 430px;
@@ -16,7 +27,7 @@
 }
 
 .main-header-username {
-  font-family: Source Pro Sans, sans-serif;
+  font-family: $main-font;
   font-weight: 300;
   margin: 0;
 }
@@ -31,8 +42,9 @@
     width: 33.3%;
     margin-left: 2em;
     margin-top: 200px;
-    height: 400px;
+    height:400px;
   }
+
   .header-img {
     padding-top: 1.5em;
   }

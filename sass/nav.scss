@@ -1,0 +1,62 @@
+// Default center vertical align
+@mixin vertical-align($justify-content: center, $align-items: center) {
+  display: flex;
+  flex-direction: column;
+  justify-content: $justify-content;
+  align-items: $align-items;
+  }
+
+// Color variables
+$nav-text-color: #FFFFFF;
+$default-blue: #4056A1;
+
+// Font variables
+$nav-font: Bungee, sans-serif;
+$body-font: "Source Sans 3", sans-serif;
+
+/* CSS for mobile views and above */
+nav {
+  font-family: $nav-font;
+  color: $nav-text-color;
+  width: 100%;
+  height: 120px;
+  position: fixed;
+  padding: 1em 1.5em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  min-width: 430px;
+}
+
+.title {
+  font-size: 1.5em;
+}
+
+.nav-action {
+  @include vertical-align;
+  font-family: $body-font;
+  font-size: 0.8em;
+}
+
+#compose {
+  @include vertical-align;
+  color: $nav-text-color;
+  outline: none;
+  background: none;
+  border: none;
+  :hover {
+    cursor: pointer;
+  }
+}
+
+// #compose:hover {
+//   cursor: pointer;
+// }
+
+/* CSS rules that target Desktop screens (min width 1024px) */
+@media only screen and (min-width: 1024px) {
+  nav {
+    background-color: $default-blue;
+  }
+}

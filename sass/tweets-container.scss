@@ -1,0 +1,87 @@
+// Default center horizontal center align
+@mixin horizonal-align ($justify-content: center, $align-items: center) {
+  display: flex;
+  flex-direction: row;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
+
+// Default left and right padding
+@mixin padding {
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+
+// Color variables
+$default-color: #545149;
+$default-blue: #4056A1;
+$icon-hover: rgb(220, 195, 55);
+
+/* CSS for mobile views and above */
+article {
+  border-color: $default-color;
+  border-style: solid;
+  padding: 0.5em;
+  border-width: 4px;
+  min-width: 430px;
+
+  .shadow:hover {
+    box-shadow: 8px 8px 2px 1px rgba(0, 0, 255, .2);
+  }
+
+  header {
+    @include horizonal-align($justify-content: space-between);
+    @include padding;
+    height: 90px;
+    margin: 0;
+  }
+
+  .tweet-text {
+    @include padding;
+    word-break: break-word;
+  }
+} 
+
+.tweet-user-profile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.tweet-user-name {
+  @include padding;
+  font-weight: 300;
+}
+
+p {
+  .username-handle {
+    @include padding;
+    color: $default-blue;
+    font-weight: 600;
+    opacity: 0.3;
+  }
+}
+
+footer {
+  @include horizonal-align($justify-content: space-between);
+  @include padding;
+  border-color: $default-color;
+  border-top-style: solid;
+  border-top-width: 4px;
+  width: 100%;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.all-tweets-icons {
+  @include horizonal-align($justify-content: space-around);
+  width: 80px;
+}
+
+i.fa-solid {
+  color: $default-blue;
+}
+
+i.fa-solid:hover {
+  color: $icon-hover;
+}
