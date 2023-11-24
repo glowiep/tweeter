@@ -22,9 +22,17 @@ justify-content: $justify-content;
 align-items: $align-items;
 }
 
+// Default 1.5ems away from all edges
+@mixin content-margin($top: 1.5em) {
+  margin-top: $top;
+  margin-bottom: 1.5em;
+  margin-left: 1.5em;
+  margin-right: 1.5em;
+}
+
 // Color variables
 $default-color: #545149;
-$tweet-button-text: #f4f1ec;
+$tweet-button-text: #FFFFFF;
 $default-blue: #4056A1;
 $scroll-button-color: red;
 
@@ -43,9 +51,8 @@ body {
  */
 main {
   @include vertical-align($align-items: none);
+  @include content-margin;
   width: 90%;
-  margin: 0 auto;
-  margin-bottom: 1em;
 }
 
 #tweet-button {
@@ -85,12 +92,10 @@ section {
     flex-direction: row;
     justify-content: space-evenly;
     align-items: flex-start;
-    gap: 50px;
   }
 
   main {
-    width: 90%;
-    justify-content: flex-start;
+    margin: 0 auto;
     overflow-y: auto;
     scroll-snap-type: start;
     scroll-behavior: smooth;

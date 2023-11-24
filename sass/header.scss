@@ -1,10 +1,18 @@
 // Default center vertical align
-@mixin vertical-align($justify-content: center, $align-items: center) {
+@mixin vertical-align($justify-content: center) {
   display: flex;
   flex-direction: column;
   justify-content: $justify-content;
-  align-items: $align-items;
+  align-items: center;
   }
+
+// Default 1.5ems away from all edges
+@mixin content-margin($top: 1.5em) {
+  margin-top: $top;
+  margin-bottom: 1.5em;
+  margin-left: 1.5em;
+  margin-right: 1.5em;
+}
 
 // Color variables
 $background: rgb(214, 139, 82);
@@ -17,6 +25,7 @@ $main-font: Source Pro Sans, sans-serif;
   @include vertical-align($justify-content: flex-start);
   background-color: $background;
   height: 520px;
+  width: 100%;
   background-image: url("https://www.transparenttextures.com/patterns/wood-pattern.png");
   min-width: 430px;
 }
@@ -39,9 +48,9 @@ $main-font: Source Pro Sans, sans-serif;
 /* CSS rules that target Desktop screens (min width 1024px) */
 @media only screen and (min-width: 1024px) {
   #main-header {
+    @include vertical-align;
+    @include content-margin($top: 200px);
     width: 33.3%;
-    margin-left: 2em;
-    margin-top: 200px;
     height:400px;
   }
 

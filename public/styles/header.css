@@ -6,6 +6,7 @@
   align-items: center;
   background-color: rgb(214, 139, 82);
   height: 520px;
+  width: 100%;
   background-image: url("https://www.transparenttextures.com/patterns/wood-pattern.png");
   min-width: 430px;
 }
@@ -28,9 +29,15 @@
 /* CSS rules that target Desktop screens (min width 1024px) */
 @media only screen and (min-width: 1024px) {
   #main-header {
-    width: 33.3%;
-    margin-left: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin-top: 200px;
+    margin-bottom: 1.5em;
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+    width: 33.3%;
     height: 400px;
   }
   .header-img {
