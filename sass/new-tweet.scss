@@ -53,7 +53,7 @@ $validator-text: #FFFFFF;
 }
 
 .validator {
-  @include padding;
+  @include padding($left: 0.5em);
   color: $validator-text;
   background-color: $validator-background;
 }
