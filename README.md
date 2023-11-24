@@ -54,7 +54,7 @@ Tweeter homepage layout will depend on your device.
 - SASS components for maintainable CSS.
 
 
-<h3 style="text-align: center;">Happy Tweeting!</h3>
 <div align="center">
-<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdWF2eTFmb2dzYnYyeDkwdHBuNzB5dnU5dGF1b3JzZzdncGNtaTNrOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o85g4l3qgILLQelgs/giphy.gif" width="130">
+<h3 style="text-align: center;">Happy Tweeting!</h3>
+<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdWF2eTFmb2dzYnYyeDkwdHBuNzB5dnU5dGF1b3JzZzdncGNtaTNrOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o85g4l3qgILLQelgs/giphy.gif" alt="Bird Cartoon Loop GIF By Jason Clarke" width="130">
 </div>
