@@ -1,7 +1,6 @@
 $(document).ready(function() {
   // Show compose-tweet section by default
-  $("#compose-tweet").show();
-  $("#tweet-text").focus();
+  $("#compose-tweet").show().find("#tweet-text").focus()
   
   $("#compose").on("click", function(event) {
     event.preventDefault;
