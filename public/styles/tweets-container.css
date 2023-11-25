@@ -6,9 +6,6 @@ article {
   border-width: 4px;
   min-width: 430px;
 }
-article .shadow:hover {
-  box-shadow: 8px 8px 2px 1px rgba(0, 0, 255, 0.2);
-}
 article header {
   display: flex;
   flex-direction: row;
@@ -23,6 +20,10 @@ article .tweet-text {
   padding-left: 0.5em;
   padding-right: 0.5em;
   word-break: break-word;
+}
+
+article.shadow:hover {
+  box-shadow: 8px 8px 2px 1px rgba(0, 0, 255, 0.2);
 }
 
 .tweet-user-profile {

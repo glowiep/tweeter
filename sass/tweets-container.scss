@@ -25,10 +25,6 @@ article {
   border-width: 4px;
   min-width: 430px;
 
-  .shadow:hover {
-    box-shadow: 8px 8px 2px 1px rgba(0, 0, 255, .2);
-  }
-
   header {
     @include horizonal-align($justify-content: space-between);
     @include padding;
@@ -41,6 +37,10 @@ article {
     word-break: break-word;
   }
 } 
+
+article.shadow:hover {
+  box-shadow: 8px 8px 2px 1px rgba(0, 0, 255, .2);
+}
 
 .tweet-user-profile {
   display: flex;

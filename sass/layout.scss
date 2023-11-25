@@ -70,6 +70,7 @@ section {
   @include vertical-align($align-items: none);
   width: 100%;
   margin-top: 20px;
+  padding-bottom: 0.5em;
   gap: 1.5em;
 }
 
